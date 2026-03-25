@@ -6,13 +6,13 @@ A single-image 3D reconstruction pipeline built on Meta's SAM2 and SAM3D. Users 
 
 ## Demo
 
-### Example 1 — Stuffed Rabbit (SAM3D official sample image)
+### Example 1 — Stuffed Rabbit
 
 | Input Image | SAM2 Mask | 3D Reconstruction |
 |:-----------:|:---------:|:-----------------:|
 | ![input](results/kidsroom_input.jpg) | ![mask](results/kidsroom_mask.png) | ![3d](results/rabbit_3d.png) |
 
-### Example 2 — Lounge Chair (custom image)
+### Example 2 — Lounge Chair 
 
 | Input Image | SAM2 Mask | 3D Reconstruction |
 |:-----------:|:---------:|:-----------------:|
