@@ -6,17 +6,35 @@ A single-image 3D reconstruction pipeline built on Meta's SAM2 and SAM3D. Users 
 
 ## Demo
 
-### Example 1 — Stuffed Rabbit
+### Example 1 — Stuffed Rabbit (SAM3D official sample image)
 
-| Input Image | SAM2 Mask | 3D Reconstruction |
-|:-----------:|:---------:|:-----------------:|
-| ![input](results/kidsroom_input.jpg) | ![mask](results/kidsroom_mask.png) | ![3d](results/rabbit_3d.png) |
+<table>
+  <tr>
+    <th align="center">Input Image</th>
+    <th align="center">SAM2 Mask</th>
+    <th align="center">3D Reconstruction</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="results/kidsroom_input.jpg" width="280" height="200" style="object-fit:cover"/></td>
+    <td align="center"><img src="results/kidsroom_mask.png" width="280" height="200" style="object-fit:cover"/></td>
+    <td align="center"><img src="results/rabbit_3d.png" width="280" height="200" style="object-fit:cover"/></td>
+  </tr>
+</table>
 
-### Example 2 — Lounge Chair 
+### Example 2 — Lounge Chair (custom image)
 
-| Input Image | SAM2 Mask | 3D Reconstruction |
-|:-----------:|:---------:|:-----------------:|
-| ![input](results/chair_input.jpg) | ![mask](results/chair_mask.png) | ![3d](results/chair_3d.png) |
+<table>
+  <tr>
+    <th align="center">Input Image</th>
+    <th align="center">SAM2 Mask</th>
+    <th align="center">3D Reconstruction</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="results/chair_input.jpg" width="280" height="200" style="object-fit:cover"/></td>
+    <td align="center"><img src="results/chair_mask.png" width="280" height="200" style="object-fit:cover"/></td>
+    <td align="center"><img src="results/chair_3d.png" width="280" height="200" style="object-fit:cover"/></td>
+  </tr>
+</table>
 
 ---
 
