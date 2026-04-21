@@ -4,30 +4,6 @@ A single-image 3D reconstruction pipeline built on Meta's SAM2 and SAM3D. Users 
 
 ---
 
-## Web UI Demo
-
-<!-- Replace with your recorded GIF -->
-![Web UI Demo](results/web_ui_demo.gif)
-
-### Screenshots
-
-<p align="center"><img src="results/web_ui_upload.png" width="800"/></p>
-<p align="center"><em>Upload interface — load a .PLY model and background scene</em></p>
-
-<p align="center"><img src="results/web_ui_scene1.png" width="800"/></p>
-<p align="center"><em>Place reconstructed chair into a new lounge scene</em></p>
-
-<p align="center"><img src="results/web_ui_scene2.png" width="800"/></p>
-<p align="center"><em>Freely adjust scale and position within the scene</em></p>
-
-<p align="center"><img src="results/web_ui_scene3.png" width="800"/></p>
-<p align="center"><em>Test with a different background scene</em></p>
-
-<p align="center"><img src="results/web_ui_export.png" width="800"/></p>
-<p align="center"><em>Export rendered image and clean mask</em></p>
-
----
-
 ## 3D Reconstruction Demo
 
 ### Example 1 — Stuffed Rabbit (SAM3D official sample image)
@@ -104,6 +80,28 @@ RGBA image (mask in alpha channel)
                                                         ↓
                                                    .ply / .glb
 ```
+---
+## Web UI Demo
+
+<!-- Replace with your recorded GIF -->
+![Web UI Demo](results/web_ui_demo.gif)
+
+### Screenshots
+
+<p align="center"><img src="results/web_ui_upload.png" width="800"/></p>
+<p align="center"><em>Upload interface — load a .PLY model and background scene</em></p>
+
+<p align="center"><img src="results/web_ui_scene1.png" width="800"/></p>
+<p align="center"><em>Place reconstructed chair into a new lounge scene</em></p>
+
+<p align="center"><img src="results/web_ui_scene2.png" width="800"/></p>
+<p align="center"><em>Freely adjust scale and position within the scene</em></p>
+
+<p align="center"><img src="results/web_ui_scene3.png" width="800"/></p>
+<p align="center"><em>Test with a different item in the scene</em></p>
+
+<p align="center"><img src="results/web_ui_export.png" width="800"/></p>
+<p align="center"><em>Export rendered image and clean mask</em></p>
 
 ---
 
