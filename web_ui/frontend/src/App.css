@@ -1,0 +1,177 @@
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #333333;
+  background: #F5F0E8;
+  min-height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  color: #D4A843;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+h2 {
+  color: #555555;
+  border-bottom: 2px solid #D4A843;
+  padding-bottom: 8px;
+  font-size: 16px;
+}
+
+h3 {
+  color: #777777;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.section {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #E0D8CC;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.upload-row {
+  display: flex;
+  gap: 20px;
+}
+
+.upload-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.upload-box label {
+  font-weight: 600;
+  color: #555555;
+}
+
+.upload-box input[type="file"] {
+  padding: 10px;
+  border: 2px dashed #D4A843;
+  border-radius: 8px;
+  background: #FAF7F0;
+  color: #555555;
+  cursor: pointer;
+}
+
+.upload-box input[type="file"]:hover {
+  background: #F5F0E8;
+}
+
+.filename {
+  font-size: 12px;
+  color: #D4A843;
+  font-weight: 600;
+}
+
+/* Split View Layout */
+.split-view {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.split-panel {
+  flex: 1;
+  min-width: 0;
+}
+
+.split-panel .scene-img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #E0D8CC;
+  max-height: 500px;
+  object-fit: contain;
+  background: #E8E4DC;
+}
+
+.placeholder {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F5F0E8;
+  border-radius: 8px;
+  border: 2px dashed #D4A843;
+  color: #999999;
+  font-size: 14px;
+}
+
+.viewer-container {
+  width: 100%;
+  height: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #E8E4DC;
+  border: 1px solid #E0D8CC;
+}
+
+.hint {
+  color: #999999;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 6px;
+}
+
+/* Export Bar */
+.export-bar {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.export-btn {
+  padding: 12px 40px;
+  background: #E8C547;
+  color: #333333;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+
+.export-btn:hover {
+  background: #D4B43E;
+}
+
+.export-btn:disabled {
+  background: #CCCCCC;
+  cursor: not-allowed;
+}
+
+/* Results */
+.result-row {
+  display: flex;
+  gap: 15px;
+}
+
+.result-row > div {
+  flex: 1;
+  background: #FDF6E0;
+  border-radius: 10px;
+  padding: 12px;
+  border: 1px solid #E8C547;
+}
+
+.result-row img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #E0D8CC;
+}
+
+body {
+  margin: 0;
+  background: #F5F0E8;
+}

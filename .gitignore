@@ -1,0 +1,4 @@
+web_ui/frontend/node_modules/
+web_ui/uploads/
+web_ui/output/
+__pycache__/
