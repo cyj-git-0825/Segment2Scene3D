@@ -1,10 +1,34 @@
 # Segment2Scene3D
 
-A single-image 3D reconstruction pipeline built on Meta's SAM2 and SAM3D. Users click on any object in a photo — the pipeline segments it, reconstructs a full 3D model, and exports a `.ply` file viewable in MeshLab.
+A single-image 3D reconstruction pipeline built on Meta's SAM2 and SAM3D. Users click on any object in a photo — the pipeline segments it, reconstructs a full 3D model, and places it into new scenes through an interactive web UI.
 
 ---
 
-## Demo
+## Web UI Demo
+
+<!-- Replace with your recorded GIF -->
+![Web UI Demo](results/web_ui_demo.gif)
+
+### Screenshots
+
+<p align="center"><img src="results/web_ui_upload.png" width="800"/></p>
+<p align="center"><em>Upload interface — load a .PLY model and background scene</em></p>
+
+<p align="center"><img src="results/web_ui_scene1.png" width="800"/></p>
+<p align="center"><em>Place reconstructed chair into a new lounge scene</em></p>
+
+<p align="center"><img src="results/web_ui_scene2.png" width="800"/></p>
+<p align="center"><em>Freely adjust scale and position within the scene</em></p>
+
+<p align="center"><img src="results/web_ui_scene3.png" width="800"/></p>
+<p align="center"><em>Test with a different background scene</em></p>
+
+<p align="center"><img src="results/web_ui_export.png" width="800"/></p>
+<p align="center"><em>Export rendered image and clean mask</em></p>
+
+---
+
+## 3D Reconstruction Demo
 
 ### Example 1 — Stuffed Rabbit (SAM3D official sample image)
 
@@ -52,8 +76,12 @@ Photo
          image + mask → flow matching → full 3D shape + texture → .ply
   │
   ▼
-[Step 3] Local Visualization
-         convert_color.py (SH → RGB) → MeshLab
+[Step 3] Color Conversion
+         convert_color.py (SH → RGB) → viewable .ply
+  │
+  ▼
+[Step 4] Web UI — Scene Composition      (Local · Flask + React + Three.js)
+         Load .ply → drag to position → rotate freely → export rendered + mask
 ```
 
 ---
@@ -89,6 +117,14 @@ Segment2Scene3D/
 │   └── sam3d_reconstruct.ipynb   # SAM3D inference notebook
 ├── utils/
 │   └── convert_color.py          # Spherical harmonics → RGB for MeshLab
+├── web_ui/
+│   ├── backend/
+│   │   └── app.py                # Flask API — rotation, rendering, mask generation
+│   └── frontend/
+│       ├── src/
+│       │   ├── App.js            # React + Three.js viewer with drag & rotate
+│       │   └── App.css           # Warm-tone UI styling
+│       └── package.json
 ├── results/
 │   ├── input.jpg
 │   ├── mask.png
@@ -140,14 +176,44 @@ Open `sam3d/sam3d_reconstruct.ipynb`, run all cells. Output: `chair_3d.ply`
 
 ---
 
-### Step 3 — Local Visualization
+### Step 3 — Color Conversion (Local)
 
 ```bash
-# Download .ply from HPC, then convert spherical harmonics to RGB:
-python convert_color.py chair_3d.ply chair_3d_rgb.ply
-
-# Open chair_3d_rgb.ply in MeshLab
+python utils/convert_color.py chair_3d.ply chair_3d_rgb.ply
 ```
+
+---
+
+### Step 4 — Web UI (Local)
+
+**Prerequisites:** Python 3.x with Flask, Node.js 18+
+
+```bash
+# Install backend dependencies
+pip install flask flask-cors open3d opencv-python numpy Pillow
+
+# Start backend (Terminal 1)
+cd web_ui
+python backend/app.py
+# → Running on http://127.0.0.1:5000
+
+# Install frontend dependencies (first time only)
+cd web_ui/frontend
+npm install
+
+# Start frontend (Terminal 2)
+cd web_ui/frontend
+npm start
+# → Running on http://localhost:3000
+```
+
+**Usage:**
+1. Upload a `.ply` model (e.g. `chair_3d_rgb.ply`)
+2. Upload a background scene image
+3. **Left-drag** to move the object
+4. **Right-drag** to rotate the object freely
+5. **Scroll** to zoom in/out
+6. Click **Export Rendered + Mask** to generate outputs
 
 ---
 
@@ -155,9 +221,11 @@ python convert_color.py chair_3d.ply chair_3d_rgb.ply
 
 | Component | Environment | Key deps |
 |-----------|-------------|----------|
-| SAM2 | `sam2` conda env | `torch`, `sam2`, `ipywidgets` |
-| SAM3D | `sam3d-objects` conda env | `torch`, `pytorch3d`, `hydra`, `kaolin` |
+| SAM2 | `sam2` conda env (HPC) | `torch`, `sam2`, `ipywidgets` |
+| SAM3D | `sam3d-objects` conda env (HPC) | `torch`, `pytorch3d`, `hydra`, `kaolin` |
 | Color convert | local Python | `plyfile`, `numpy` |
+| Web UI backend | local Python | `flask`, `open3d`, `opencv-python`, `numpy` |
+| Web UI frontend | local Node.js | `react`, `three`, `@react-three/fiber`, `axios` |
 
 ---
 
